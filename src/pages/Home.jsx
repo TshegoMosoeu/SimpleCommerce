@@ -2,6 +2,12 @@ import ProductCard from "../components/ProductCard";
 import { getProducts} from "../data/products"
 import { Link} from "react-router-dom"
 
+/**
+ * Render the Home page with a hero section and a grid of product cards.
+ *
+ * Renders a hero banner and a "Our Products" section containing a ProductCard for each available product.
+ * @returns {JSX.Element} The Home page element containing the hero and the populated product grid.
+ */
 export default function Home() {
     const products = getProducts();
 

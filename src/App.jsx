@@ -10,6 +10,13 @@ import Checkout from "./pages/Checkout"
 import Navbar from "./components/Navbar"
 import CartProvider from './context/CartContext'
 
+/**
+ * Root application component that configures context providers, navigation, and route mappings.
+ *
+ * Renders the application wrapped by AuthProvider and CartProvider, displays the Navbar, and declares routes:
+ * "/" → Home, "/auth" → Auth, "/checkout" → Checkout, and "/products/:id" → ProductDetails.
+ * @returns {JSX.Element} The app's top-level React element.
+ */
 function App() {
 
   return (
