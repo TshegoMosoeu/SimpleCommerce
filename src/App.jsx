@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import {Routes, Route} from "react-router-dom"
+import AuthProvider from './context/AuthContext'
 
 import Home from "./pages/Home"
 import Auth from "./pages/Auth"
@@ -10,6 +11,7 @@ import Navbar from "./components/Navbar"
 function App() {
 
   return (
+    <AuthProvider>
     <div className='app'>
       <Navbar />
 
@@ -21,6 +23,7 @@ function App() {
       </Routes>
 
     </div>
+    </AuthProvider>
   )
 }
 
