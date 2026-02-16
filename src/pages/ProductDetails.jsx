@@ -3,6 +3,13 @@ import { useParams, useNavigate } from "react-router-dom"
 import { getProductById } from "../data/products";
 import { useCart } from "../context/CartContext";
 
+/**
+ * Render a product details page for the product identified by the route `id` and allow adding it to the cart.
+ *
+ * Retrieves the product by id, navigates to "/" if not found, and displays image, name, price, description, and an "Add to Cart" button that shows the current quantity in the cart when present.
+ *
+ * @returns {JSX.Element} The rendered product detail page.
+ */
 export default function ProductDetails() {
     const {id} = useParams();
     const [product, setProduct] = useState(null);

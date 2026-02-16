@@ -1,6 +1,13 @@
 import { useCart } from "../context/CartContext";
 
 
+/**
+ * Render the checkout page with an order summary, per-item quantity controls, and a cart total.
+ *
+ * The component reads cart state and actions from CartContext to display items, allow quantity updates
+ * and removals, and show the subtotal/total. Placing an order shows a success alert and clears the cart.
+ * @returns {JSX.Element} The checkout page UI containing the item list, controls, and summary section.
+ */
 export default function Checkout() {
     const {getCartItemsWithProducts, 
         updateQuantity, 

@@ -3,6 +3,12 @@ import { getProductById } from "../data/products";
 
 const CartContext = createContext(null);
 
+/**
+ * Provides a CartContext to descendants, managing cart state and exposing cart operations.
+ * @param {Object} props
+ * @param {import('react').ReactNode} props.children - React children to render within the provider.
+ * @returns {import('react').JSX.Element} The CartContext provider element supplying cartItems and actions (addToCart, getCartItemsWithProducts, removeFromCart, updateQuantity, getCartTotal, clearCart) to descendant components.
+ */
 export default function CartProvider({children}) {
     const [cartItems, setCartItems] = useState([]); //{id:2, quantity:7}
     
@@ -76,6 +82,10 @@ export default function CartProvider({children}) {
 
 }
 
+/**
+ * Accesses the cart context value for the calling React component.
+ * @returns {object|null} The current CartContext value containing cartItems and cart actions (addToCart, getCartItemsWithProducts, removeFromCart, updateQuantity, getCartTotal, clearCart), or `null` if no CartProvider is present. 
+ */
 export function useCart() {
     const context = useContext(CartContext);
     return context;

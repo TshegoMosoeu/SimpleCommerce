@@ -3,6 +3,11 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Renders an authentication form that toggles between sign-up and login modes, validates email and password input, submits credentials through the auth context, displays validation or submission errors, and navigates to the home route on successful authentication.
+ *
+ * @returns {JSX.Element} The authentication form UI.
+ */
 export default function Auth() {
 
     const [mode, setMode] = useState("signup");

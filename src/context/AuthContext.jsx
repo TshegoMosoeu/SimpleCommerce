@@ -2,6 +2,14 @@ import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext(null);
 
+/**
+ * Provides authentication state and actions to descendant components via AuthContext.
+ *
+ * Initializes user state from localStorage's "currentUserEmail" and supplies `signUp`, `login`, `logout`, and the current `user` through the context value.
+ *
+ * @param {{children: import('react').ReactNode}} props - Component children to be wrapped by the provider.
+ * @returns {import('react').ReactElement} A React context provider that supplies authentication state and actions to its children.
+ */
 export default function AuthProvider({children}) {
     const [user, setUser] = useState(localStorage.getItem("currentUserEmail")?{email: localStorage.getItem("currentUserEmail")}:
                             null
@@ -54,6 +62,10 @@ export default function AuthProvider({children}) {
 
 }
 
+/**
+ * Access the authentication context for the calling component.
+ * @returns {{ signUp: (email: string, password: string) => { success: boolean, error?: string }, login: (email: string, password: string) => { success: boolean, error?: string }, logout: () => void, user: { email: string } | null }} The auth context object with `signUp`, `login`, and `logout` methods and the current `user` (or `null` if not authenticated).
+ */
 export function useAuth() {
     const context = useContext(AuthContext);
     return context;
