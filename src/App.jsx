@@ -8,11 +8,13 @@ import Auth from "./pages/Auth"
 import ProductDetails from "./pages/ProductDetails"
 import Checkout from "./pages/Checkout"
 import Navbar from "./components/Navbar"
+import CartProvider from './context/CartContext'
 
 function App() {
 
   return (
     <AuthProvider>
+      <CartProvider>
     <div className='app'>
       <Navbar />
 
@@ -25,6 +27,7 @@ function App() {
       </Routes>
 
     </div>
+    </CartProvider>
     </AuthProvider>
   )
 }
